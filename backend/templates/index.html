@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VelsyMedia Support Request</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <main>
+    <h1>Submit Your Support Request</h1>
+    <form id="supportForm" novalidate>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          aria-describedby="subjectError subjectCount"
+          required
+          placeholder="Enter the subject of your request"
+          minlength="5"
+          maxlength="100"
+        />
+        <div id="subjectError" class="error-message" aria-live="polite"></div>
+        <div id="subjectCount" class="char-count">0 / 100</div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          id="description"
+          name="description"
+          aria-describedby="descriptionError descriptionCount"
+          required
+          placeholder="Describe your issue or request"
+          minlength="20"
+          maxlength="1000"
+          rows="5"
+        ></textarea>
+        <div id="descriptionError" class="error-message" aria-live="polite"></div>
+        <div id="descriptionCount" class="char-count">0 / 1000</div>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+    <div id="formSuccess" class="success-message" role="alert" aria-live="assertive" style="display:none;">
+      Your support request was submitted successfully!
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
